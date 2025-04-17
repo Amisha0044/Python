@@ -1,0 +1,865 @@
+
+PYTHON SETUP
+
+- To check if python is installed in your machine, open cmd:
+python --version
+or
+python3 --version
+
+- To open python command line in cmd:
+python
+
+- Pycharm: python IDE to write, test, debug, deploy code (using community version - free)
+
+------------------------------------------------------
+
+PYTHON INTRO
+
+- Python is a high level language which is general purpose, interpreted, dynamic and has OOPS capabilities.
+- high level language i.e. python code --> python interpreter --> binary code(low level language, which computer understand)
+
+- semicolon(;) at the end of each statement is optional in Python.
+
+- BODMAS (B-Brackets:(),{},[]; O-Orders:x^2,x^1/2; D-Divide or M-Multiply; A-Addition or S-Subtraction)
+>>> 2+3         #5
+>>> 4-2         #3
+>>> 4*3         #12
+>>> 4/2         #2.0    -   true division
+>>> 5//2        #2      -   floor division
+>>> 5%2         #1      -   modulus
+>>> 8+9-10      #7
+>>> 8+9-        #error: invalid syntax
+>>> 8+2*3       #14
+>>> (8+2)*3     #30
+>>> 2**5        #32     -   exponent
+>>> 'navin'     #string
+
+print() - inbuilt function to display on console
+>>> print('hey navin')          # hey navin
+>>> print(2+5)                  # 7
+>>> print('navin's laptop')     # SyntaxError: invalid syntax
+>>> print("navin's laptop")     # navin's laptop
+>>> print("navin 'laptop'")     # navin 'laptop'
+>>> print('navin's "laptop"')   # SyntaxError: invalid syntax
+>>> print('navin\'s "laptop"')  # navin's "laptop"
+
+>>> 'navin'+'navin'         # navinnavin
+>>> 'navin'*2               # navinnavin
+>>> print('c:\docs\navin')  # c:\docs
+                            # avin
+>>> print(r'c:\docs\navin') # c:\docs\navin   -   r -- rawString -- to print string as it is (ignore escape characters)
+
+---------------------------------------------------------------------
+
+VARIABLES:
+
+- a container which stores value.
+- or variable is a name of the memory location where the value is stored.
+- variable because we can change the value.
+- _ represents output of previous operation.
+>>> x=2
+>>> y=3
+>>> x+y                 # 5
+>>> x+17                # 19
+>>> _+y                 # 22
+
+- strings are immutable, means (its elements) cannot be changed or modified once created.
+>>> name='youtube'
+>>> name+' rocks'       # youtube rocks
+>>> name ' rocks'       # SyntaxError: invalid syntax
+>>> name[0]             # 'y'
+>>> name[6]             # 'e'
+>>> name[8]             # IndexError: string index out of range
+>>> name[-1]            # 'e'
+>>> name[-7]            # 'y'
+
+>>> name[0:2]           # 'yo'
+>>> name[1:4]           # 'out'
+>>> name[1:]            # 'outube'
+>>> name[:4]            # 'yout'
+>>> name[3:10]          # 'tube'
+>>> name[0::2]          # 'yuue'
+>>> name[::-1]          # 'ebutuoy'  -  string reversal
+>>> name[::-2]          # 'euuy'
+
+>>> name[0:3] = 'my'    # TypeError: 'str' object does not support item assignment
+>>> 'my' + name[3:]     # mytube
+
+>>> len(name)           # 7
+
+---------------------------------------------------------------------
+
+LISTS:
+
+- [] or list() is used to create a list.
+- a collection of multiple values of similar or dissimilar kind of data.
+- lists are mutable, means its elements can be changed or modified.
+
+>>> nums = [25,12,36,9,14]
+>>> nums[0]                 # 25
+>>> nums[3]                 # 9
+>>> nums[-1]                # 14
+>>> nums[-4]                # 12
+>>> nums[54]                # IndexError: list index out of range
+>>> nums[3:]                # [9,14]
+>>> nums[1::2]              # [12,9]
+>>> nums[::-1]              # [14,9,36,12,25]  -  revering the list
+
+>>> names = ['raju','babu','shyam']
+>>> values = [9.5,'Navin',25]
+
+>>> misc = [nums,names]     #[[], []]
+
+>>> nums.append(45)             # appends the element at the end of list  -  [25,12,36,9,14,45]
+>>> nums.insert(2,101)          # inserts the element 101 at index number 2  -  [25,12,101,36,9,14]
+>>> nums.remove(12)             # removes the element 12 from the list nums  -  [25,101,36,9,14]
+>>> nums.pop(1)                 # 101  -  removes the element at index number 1 and return the removed element  -  [25,36,9,14]
+>>> nums.pop()                  # 45  -  removes the last element of list nums and returns the removed element  -  [25,36,9]
+>>> nums                        # [25,36,9]
+>>> del nums[1:]                # deleted multiple values from index number 1 till end  -  [25]
+>>> nums.extend([29,12,12,36])  # adds multiple values in list at the end of nums
+>>> nums                        # [25,29,12,12,36]
+>>> nums.sort()                 # sorts the elements in ascending order
+>>> nums                        # [12,12,25,29,36]
+>>> nums.index(25)              # return the index number of 1st occurance of  element 25 in list nums  -  2
+>>> nums.count(12)              # counts and returns the occurance of element 12 in list nums  -  2
+>>> nums.reverse()              # reverse the elements in list  -  [36,29,25,12,12]
+>>> nums2 = nums.copy()         # creates copy of nums; changing nums won't affect nums2 and vice-versa
+>>> nums.clear()                # empty the list nums  -  []
+>>> del nums2                   # delete the list nums2  -  NameError: name 'lt2' is not defined. Did you mean: 'lt'?
+
+>>> lt=list((1,2,3,3,4))        # [1, 2, 3, 3, 4]
+
+- inbuilt functions: min(), max(), sum(), len(), sorted()
+
+>>> min(nums)           # 12
+>>> max(nums)           # 36
+>>> sum(nums)           # 116
+>>> len(nums)           # 5
+>>> sorted(nums)        # [12,12,25,29,36]
+
+------------------------------------------------------------------------
+
+TUPLE:
+
+- tuples are immutable, means we can't change the elements of tuple once it's created.
+- since tuples are immutable, hence it's faster than lists.
+- only count() and index() methods are available to use with tuples; and built in methods.
+
+- tuples can be created using () or tuple() or simply by putting elements separated by comma.
+- to create a single element tuple, use a comma at the end to indicate tuple.
+
+- tuples are similar to lists but the only difference is that tuples are immutable while lists are mutable.
+
+>>> tup=1,3,5,7,7,7             # (1,3,5,7,7,7)
+>>> tup[1]                      # 3
+>>> tup[-3]                     # 7
+>>> tup[0] = 44                 # TypeError: 'tuple' object does not support item assignment
+
+>>> tup1=tuple([1,2,3,3,4,55])  # (1, 2, 3, 3, 4, 55)
+
+----------------------------------------------------------------------
+
+SET:
+
+- collection of UNIQUE (no duplicates) elements which are unordered (no indexing).
+- {} or set() is used to create set.
+- sets use the concept of Hash; using Hash, we improve the performance by accessing elements as fast as possible. That's why unrdered collection as we want speed than the sequence/order here.
+- sets are mutable, means we can change its elements. But although sets are mutable, it can only contain immutable data as its elements.
+
+- sets are similar to lists but the only difference is that sets cannot contain duplicated and doesn't have ordering while list can and have.
+
+>>> set1 = {3,4,66,66,0}    # {66,3,0,4}
+>>> set1[0]                 # TypeError: 'type' object does not support item assignment  -  unordered, so no indexing
+>>> set2=set([3,4,5,5])     # {3, 4, 5}
+
+----------------------------------------------------------------------
+
+DICTIONARY:
+
+- when you want to search for elements by a key not by index number. Ex- phonebook (name:number), dictionary(word:meaning)
+- {} or dict() is used to create dictionary.
+- collection of key:value pairs; key should be of immutable type and unique.
+
+>>> dict1=dict({1:1,2:4,3:9})                   # {1: 1, 2: 4, 3: 9}
+>>> data={1:'Navin', 2:'Kiran', 4:'Harsh'}      # {1:'Navin', 2:'Kiran', 4:'Harsh'}
+>>> data[4]                                     # 'Harsh'
+>>> data[3]                                     # KeyError: 3
+>>> data.get(1)                                 # 'Navin'
+>>> data.get(3)                                 # no output (not even error- good)
+>>> print(data.get(3))                          # None
+>>> data.get(1,'Not Found')                     # 'Navin'
+>>> data.get(3,'Not Found')                     # 'Not Found'
+
+>>> keys = ['Amisha', 'Ayushi', 'Alien']
+>>> values = ['Python', 'ABAP', 'Everything']
+>>> data = dict(zip(keys,values))               # {'Amisha': 'Python', 'Ayushi': 'ABAP', 'Alien': 'Everything'}
+>>> data["Random"] = "Anything"                 # {'Amisha': 'Python', 'Ayushi': 'ABAP', 'Alien': 'Everything', 'Random': 'Anything'}
+>>> del data["Alien"]                           # {'Amisha': 'Python', 'Ayushi': 'ABAP', 'Random': 'Anything'}
+
+>>> prog = {'JS':'Atom', "CPP":"VSCode", 'Python':['PyCharm','Sublime'], 'Java':{'JSE':'NetBeans', 'JEE':'Eclipse'}}
+# {'JS':'Atom', 'CPP':'VSCode', 'Python':['PyCharm','Sublime'], 'Java':{'JSE':'NetBeans', 'JEE':'Eclipse'}}
+
+>>> prog['JS']                                  # 'Atom'
+>>> prog['Python']                              # ['PyCharm','Sublime']
+>>> prog['Python'][0]                           # 'PyCharm'
+>>> prog['Java']                                # {'JSE':'NetBeans', 'JEE':'Eclipse'}
+>>> prog['Java']['JEE']                         # 'Eclipse'
+
+----------------------------------------------------------------------
+
+SET PATH FOR PYTHON in WINDOWS (if Python not recognised by cmd even after installation):
+
+- Temporarily set path (it will be gone and you'll loose the path if you close the CMD)
+set path="ExactPathWherePythonWasInstalled"
+
+- Permanently set the path:
+search bar: environment variable
+open: edit the system environment variables
+click on: environment variables
+go to system variabled section: click on path - edit - add 2 python paths (ex- C:\Python313\ and C:\Python313\Scripts\) - ok
+Now, restart CMD and type: python (it will work)
+
+In CMD:
+python
+>>> help()
+help> topics
+help> LISTS
+help> exit
+>>> help('LISTS')
+type q to quit
+>>>
+
+-------------------------------------------------------------------------
+
+SUBLIME AS PYTHON EDITOR:
+
+- Light weight software/editor/IDE (ctrl+B to run the code)
+
+-------------------------------------------------------------------------
+
+MORE ON VARIABLES:
+
+- when you initialize a variable, inside internal memory, a box with name as variableName and value as providedValue will get created with an address.
+>>> num, a, name = 5, "Navin", 10
+>>> id(num)                 # 4583720921
+>>> id(name)                # 23909926
+>>> id(name)                # 6876392823
+>>> num = a
+>>> a                       # 10
+>>> num                     # 10
+>>> id(a)                   # 4583720921
+>>> id(num)                 # 4583720921
+>>> id(10)                  # 4583720921 - in id(10), 10 here is an object, everything is an object
+>>> k=10
+>>> id(k)                   # 4583720921
+
+>>> a=9
+>>> id(a)                   # 54297463932
+>>> id(num)                 # 4583720921
+
+>>> k=a
+>>> id(k)                   # 54297463932
+
+>>> num=15
+>>> id(num)                 # 6768903004
+
+# now, 10 which is not tagged by any variable, it will be garbage collected later by the Garbage Collector.
+# So, any data having referenced by a variable will remain in memory for use but it it is not referenced by any variable, it will be deleted after sometime by garbage collector.
+
+
+- means if same data is being hold by two variables, both will point to the same box and hence will have same address.
+- Hence, Python is more memory efficient.
+- So, the address is not based on variable name but based on the box/data itself.
+
+
+CONSTANTs:
+
+- immutable data
+- Constant variable is a variable which value never gets changed during the execution of program.
+- Unfortunately in Python, we can not create a constant variable.
+>>> PI = 3.14
+>>> PI = 3.15
+>>> PI                      # 3.15
+
+>>> type(PI)                # <class 'float'>
+
+------------------------------------------------------------------------
+
+DATA TYPES in PYTHON:
+
+- None, Numeric, List, Tuple, Set, String, Range, Dictionary
+
+- None: A variable which is not assigned with any value is None.
+- Numeric: int, float, complex, bool
+>>> num=24
+>>> type(num)               # <class 'int'>
+>>> num=2.8
+>>> type(num)               # <class 'float'>
+>>> num=6+9j
+>>> type(num)               # <class 'complex'>
+
+>>> a = 5.6
+>>> b = int(a)              # 5
+>>> type(b)                 # <class 'int'>
+>>> k = float(b)            # 5.0
+>>> k = 6
+>>> c = complex(b,k)        # (5+6j)
+
+>>> b<k                     # True
+>>> boolVar = b==k          # False
+>>> type(boolVar)           # <class 'bool'>
+
+>>> int(True)               # 1
+>>> int(False)              # 0
+
+- List, Tuple, Set, String, Range: Sequence
+>>> lst = [1,4,6,4]
+>>> type(lst)               # <class 'list'>
+>>> tup = (1,4,6,4)
+>>> type(tup)               # <class 'tuple'>
+>>> sett = {2,34,5}
+>>> type(sett)              # <class 'set'>
+>>> str = "A String"
+>>> str = "+"
+>>> type(str)               # <class 'str'>
+>>> range(10)               # range(0,10)
+>>> list(range(10))         # [0,1,2,3,4,5,6,7,8,9]
+>>> lt = list(range(2,10,2))    # [2,4,6,8]
+>>> type(lt)                # <class 'range'>
+
+dictionary/mapping; to fetch data in faster manner, in a more efficient way, easier to fetch data using key (key:value)
+>>> dic = {'navin':'apple', 'rahul':'samsung', 'kiran':'oneplus'}       # {'navin':'apple', 'rahul':'samsung', 'kiran':'oneplus'}
+>>> type(dic)               # <class 'dict'>
+>>> dic.keys()              # dict_keys(['navin','rahul','kiran'])
+>>> dic.values()            # dict_values(['apple','samsung','oneplus'])
+>>> dic.get('kiran')        # 'oneplus'
+>>> dic['kiran']            # 'oneplus'
+
+-----------------------------------------------------------------
+
+OPERATORS in PYTHON:
+
+- Arithmetic, Assignment, Unary, Relational, Logical, Bitwise Operators
+(no ternary operator ?: in Python)
+
+- Arithmetic operators: +, -, *, /, //, %, **
+- Assignment Operators: +=, -=, *=, /=, //=, %=, **=  [x+=2 => x=x+2]
+- Unary Operators: works on single operand: -varName  [-varName, varName=-varName]
+- Relational Operators: compare and return True or False: <, <=, >, >=, ==, !=
+- Logical Operators: to combine two or more conditions, and returns either True or False: and, or, not  [x=True; x = not x ==> x=False]
+- Bitwise Operators: works on bits: & (bitwise and), | (bitwise or), ~ (complement/negation), ^ (xor), << (left shift), >> (right shift)
+
+
+complement/negation(~) operator:
+
+~12 => -13  [~ means 1->0 or 0->1]
+00001100 (12) => 11110011 (~12 means complement of 12 => -13)
+
+-13 = we don't store negative numbers in computer, we only store positive numbers.
+So, to store -13, we first have to convert it into positive number, which we can do using 2's complement
+
+2's complement = 1's complement + 1
+
+13 = 00001101
+1's complement of 13 = 11110010
+2's complement of 13 = 11110011 => -13
+
+
+bitwise and (&):  [1 -> only when all 1]
+>>> 12 & 13                    # 12
+00001100 & 00001101 = 00001100 (12)
+>>> 25 & 30                    # 24
+
+bitwise or (|):  [1 -> if at least one is 1]
+>>> 12 | 13                    # 13
+00001100 | 00001101 = 00001101 (13)
+
+bitwise xor (^):  [if both are different bits]
+>>> 12 ^ 13                    # 1
+00001100 ^ 00001101 = 00000001 (1)
+>>> 25^30                      # 7
+
+>>> 10 << 2                    # 40
+00001010.0000 (10) ---shift bits to left by 2---> 00101000.00 (40)
+>>> 10 >> 2
+001010. (10) ---shift bits to right by 2---> 000010.10 (2)
+
+----------------------------------------------------------------
+
+NUMBER SYSTEM CONVERSION in PYTHON:
+
+- Decimal (base-10; humans), Binary (base-2; computers), Octal (base-8; IPv4 octet- octal representation), Hexadecimal (base-16; IPv6)
+
+>>> bin(25)             # '0b11001'  -  0b indicates it's a binary number - dec to bin => divide dec num by 2, rem from down to top
+>>> 0b0101              # 5  -  decimal representation will be the output
+>>> oct(25)             # '0o31'
+>>> hex(25)             # '0x19'
+>>> 0xf                 # 15
+
+- decimal to other: divide by other; and go from bottom to top remainder
+- other to decimal: representation of other**(....3,2,1,0) => 1/0
+
+------------------------------------------------------------------
+
+PYTHON IDLE COMMANDS:
+
+- check previous commands: Options - configure IDLE - keys - history - history previous - get new key for selection - select up arrow
+- to clear the console: close and re-open IDLE
+
+------------------------------------------------------------------
+
+IMPORT MATH FUNCTIONS:
+
+>>> import math             # import math module first to be able to use it in yout code
+>>> x = math.sqrt(16)       # 4
+>>> math.ceil(2.5)          # 3  -  ceil - ceiling fan - chhat - gives upper integer
+>>> math.floor(2.5)         # 2  -  floor - jameen - gives lower integer
+>>> math.pow(3,4)           # 81
+>>> math.pi                 # 3.141592653589793
+>>> math.e                  # 2.718281828459045  -  Exponential math, natural logs
+
+>>> import math as m        # alias of math as m
+>>> math.sqrt(49)           # 7
+>>> m.sqrt(49)              # 7
+
+>>> from math import sqrt, pow      # import only sqrt() and pow() functions from math module
+>>> pow(2,5)                # 32
+
+------------------------------------------------------------------
+
+PyCharm RUN DEBUG:
+
+- Python IDLE is good for running and checking single line commands but to build big code files or projects, use file to create .py file.
+This can be done through Python IDLE, cmd or IDE (Integrated Development Environment) like PyCharm.
+- Advantage of using IDE: debug (put breakpoint on a line; f8 - step over (next line))
+
+------------------------------------------------------------------
+
+PROGRAM FILES:
+
+- swap 2 variables in Python:
+
+--------------------------------------------------------------------
+
+TAKE INPUT FROM USER:
+
+- input() function takes keyboard-based input from console as string
+
+>>> x = input('enter 1st number: ')     #9
+>>> type(x)                             # <class 'str'>
+>>> y = input('enter 2nd number: ')     #5
+>>> x+y         # 95
+
+>>> a= int(x)
+>>> b= int(y)
+>>> a+b         # 14
+
+>>> ch = input('enter a character: ')   #pqr
+>>> print(ch[0])                        # p
+
+>>> ch = input('enter a character: ')[0]    #pqr -> p
+>>> print(ch)                           # p
+
+
+EVAL() FUNCTION:
+
+- eval() function takes an expression as its argument and returns the evaluated result.
+
+>>> result = eval(input('enter an expression to evaluate: '))   #2+6-1
+>>> print(result)                       # 7
+
+
+ARGV:
+
+- argv stands for argument values, and is part of sys module in python
+- used to read argument when executing the code
+
+argvCode.py
+>>> import sys
+>>> x = int(argv[1])
+>>> y = int(argv[2])
+>>> x+y
+
+cmd: python argvCode.py 5 11    #argv[0]=argvCode.py, argv[1]=5, argv[2]=11
+O/P: 16
+
+---------------------------------------------------------------------
+
+IF ELIF ELSE STATEMENTS (CONDITIONAL STATEMENTS):
+
+- Input ----> CPU(CU+ALU) <--+--> MemoryUnit ----> Output
+- ALU (Arithmetic Logical unit) - Arithmetic to solve arithmetic calculation & logical unit to decide and take actions based on logic.
+
+- Indentation should be default is 4 spaces, but any number of spaces can be used given that in each line for indentation, it should have same number of spaces as indentation, else you'll get error.
+- Hence, recommended way to use TAB for indentation to have uniformity throught the code.
+
+--------------------------------------------------------------------------------------
+
+break - to jump out of the loop
+continue - skip the current iteration of loop
+pass - to do nothing; but you want to have a block, so you can use pass to indicate that there is no statements so just pass.
+
+----------------------------------------------------------------------
+
+FOR-ELSE:
+- works only if inside a for loop, "if" has "break", then only "else" can be used with "for" loop.
+
+----------------------------------------------------------------------
+
+ARRAYS IN PYTHON:
+
+- collection of data of same type
+- dynamic length
+- offers many built-in methods to work with array
+- to use arrays, we must import a module "array"
+
+array — Efficient arrays of numeric values
+This module defines an object type which can compactly represent an array of basic values: characters, integers, floating-point numbers. Arrays are sequence types and behave very much like lists, except that the type of objects stored in them is constrained. The type is specified at object creation time by using a type code, which is a single character. The following type codes are defined:
+
+Type code   C Type                  Python Type         Minimum size in bytes
+
+'b'         signed char             int                 1
+'B'         unsigned char           int                 1
+'u'         wchar_t                 Unicode character   2
+'w'         Py_UCS4                 Unicode character   4
+'h'         signed short            int                 2
+'H'         unsigned short          int                 2
+'i'         signed int              int                 2
+'I'         unsigned int            int                 2
+'l'         signed long             int                 4
+'L'         unsigned long           int                 4
+'q'         signed long long        int                 8
+'Q'         unsigned long long      int                 8
+'f'         float                   float               4
+'d'         double                  float               8
+
+NOTE: 'u' --> Deprecated since version 3.3, will be removed in version 3.16: Please migrate to 'w' typecode.
+
+---------------------------------------------------------------------------------
+
+TYPES OF ARRAY:
+1) Single Dimensional array (1D)
+2) Multi Dimensional array (2D, 3D, 4D...)
+
+- array module only supports 1D array and not multi-dimensional array.
+- 3rd party package (not available as part of Python) "numpy" is used to create and work with multi-dimensional arrays.
+- numpy works with both 1D and multi-D arrays.
+
+How to install numpy in Python IDLE:
+- go to cmd and run below command:
+pip3 install numpy
+- Now restart IDLE and check import numpy, it will work.
+
+How to install numpy in PyCharm:
+- file -- settings -- Project: ProjectName -- ProectInterpreter -- click on "+" -- search "numpy" --click on "install"
+- Now, numpy should be visible in Project: ProjectName -- ProectInterpreter
+- Now, "import numpy" will work.
+
+- SYNTAX TO CREATE ARRAY USING NUMPY:
+arr = array([1,3,6,8])
+
+DIFFERENT WAYS OF CREATING ARRAY IN NUMPY:
+1) array()
+2) linspace()
+3) logspace()
+4) arange()
+5) zeros()
+6) ones()
+
+CREATING MULTI-DIM ARRAY (EX. MATRIX):
+matrix(1 2 3; 4 5 6; 7 8 9)  # 3x3 matrix
+
+------------------------------------------------------
+
+FUNCTIONS:
+
+- re-usable code
+- set of statements, which can be re-used at many places, instead of wrting it again and again, just call yhe function whenever needed
+- Syntax to define function named greet()-
+    def greet():
+        print("Hello!")
+- Syntax to call a function named greet()-
+    greet()
+
+- Python has nothing like pass by value and pass by reference.
+
+- 📦 Pass by Value vs. Pass by Reference
+This is about how data is passed to functions — and whether changes inside the function affect the original variable outside.
+
+🔁 1. Pass by Value (like numbers, strings in Python)
+Function gets a copy of the value.
+✅ Changes inside the function do NOT affect the original.
+
+🧪 Example:
+def add_five(x):
+    x = x + 5
+    print("Inside:", x)
+a = 10
+add_five(a)                 # Inside: 15
+print("Outside:", a)        # Outside: 10 → original doesn't change
+
+🧠 Why? Because int is immutable in Python — and passed by value (really, by object reference but it acts like value here).
+
+🔁 2. Pass by Reference (like lists, dictionaries in Python)
+Function gets a reference (pointer) to the actual object.
+✅ Changes inside the function do affect the original.
+
+🧪 Example:
+def modify_list(lst):
+    lst.append(4)
+    print("Inside:", lst)
+my_list = [1, 2, 3]
+modify_list(my_list)        # Inside: [1, 2, 3, 4]
+print("Outside:", my_list)  # Outside: [1, 2, 3, 4] → changed!
+
+🧠 Why? Because list is mutable and passed by reference to the same object.
+
+📌 Summary Table
+Type	                Immutable (int, str)	Mutable (list, dict)
+Behavior	            Pass by Value (copy)	Pass by Reference
+Changes seen outside?	❌ No	                ✅ Yes
+
+Bonus Tip: In Python...
+All variables are passed by object reference — but:
+~ If it's immutable, it behaves like pass by value
+~ If it's mutable, it behaves like pass by reference
+
+-------------------------------------------------------------
+
+TYPES OF ARGUMENTS:
+
+1) Formal Arguments
+2) Actual Arguments (Position, Keyword, Default, Variable length)
+
+------------------------------------------------------------
+
+RECURSION:
+
+- A process in which a function call itself again and again until it reaches the base condition.
+- By  default in Python, recursion has iteration limit of 1000.
+- To know the limit of recursion,
+import sys
+print(sys.getrecursionlimit())
+- To set recursion limit,
+sys.setrecursionlimit(2000)
+
+------------------------------------------------------------
+
+ANONYMOUS FUNCTION (LAMBDA FUNCTION):
+
+- Anonymous means without any name.
+- Anonymous function is the function without name.
+- Useful when we need to use a function only once and not repeatatively; to make it more efficient, with less lines of code.
+- anonymous function - custom function built for that specific task only once.
+
+- Anonymous function in python is created using "lambda" keyword.
+- Since functions are objects in Python, we need to assign it to someone.
+f = lambda a : a*a
+print(f(5))
+
+- We can pass any number of args, but it should be only of one expression, like a+b, a*a etc.
+
+- When and where to use Lamda function:
+filter() -- takes a sequence, filter it as per given function logic, and gives a sequence
+map() -- takes a sequence, maps it as per given function logic, and gives a sequence
+reduce() -- takes a sequence, reduce it as per given function logic, and returns some value
+
+- All these three functions takes 2 arguments: a function and an iterable.
+
+----------------------------------------------------------------
+
+DECORATORS:
+
+- Functions are built to perform certain task.
+- If you want to add a functionality to function-1, without changing it's existing code. And the required functionality we want to add is already available in function-2 but we can't access that function due to some reasons. So, how to add function-2 logic into our function-1? -- use decorator
+- Using decorators, we can add extra features into existing functions.
+- Using decorators, we can change the behaviour of existing function, at the compile time itself.
+
+- Decorator basically is a function, which takes another function as its argument, modifies the behaviour of it and then returns it back.
+- This new function is called "decorated" function.
+- Syntax for using the decorator:
+@decorated_function
+def my_function():
+    pass
+- @decorated_function is just a shorthand for below code:
+def my_function():
+    pass
+my_function = decorated_function(my_function)
+- Decorators are often used to add functionality to functions and methods like logging, access control etc.
+
+--------------------------------------------------------------------------
+
+MODULES
+
+- Project-ABCD -- divided into 2 modules -- AB and CD -- both modules are further divided into 2 modules: AB into A and B, CD into C and D
+- Bug in a module let's say in B, won't affect the other module, easy to debug, easy to test, easy to change.
+- These modules can be reused in future, let's say Project-GAMK can use the same module A.
+- Modules are simple python file, with .py extension.
+
+-------------------------------------------------------------------------
+
+SPECIAL VARIABLE "__name__":
+
+-
+# if running this file, prints Hello, __main__
+# but if importing this file as module into another file and running that file, it will print Hello, moduleName
+print("Hello, ", __name__)      # Hello,  __main__
+
+-
+def welcome_main():
+    print("Hello, Welcome user!")
+    print("please feel comfortable to explore our products..")
+
+# execute welcome_main() function only if this file is the main file to be executed or if this is the file which is getting executed directly.
+# and if this file/module is not the frst file i.e. being imported by other file, then don't execute welcome_main()
+if __name__=="__main__":
+    welcome_main()
+
+--------------------------------------------------------------------------
+
+OOPS (OBJECT ORIENTED PROGRAMMING SYSTEM):
+
+- Python supports multiple programming paradigm given below:
+  1) Procedure-oriented programming - calling function from a function
+  2) functional programming - passing function to a function
+  3) object-oriented programming - programming using class and objects
+
+- Everything in this world is object.
+Ex. human is an object. Each human know something (attribute -- variables) and do something (behaviour -- methods).
+
+- independent function is called a function as in functional programming.
+  when functions are defined in a class, these are called methods.
+
+- class - design/blueprint of object; object - real entity/instance of class
+Ex. A "motorola g32" is an object and there are millions of this object available in the world. They might be manufactured at different countries but the design is same which motorola produced.
+    So, design of motorola g32 which motorola prepared is a class and the actual/real motorola g32 mobiles are objects of this class.
+
+---------------------------------
+
+CLASS & OBJECTS:
+
+- syntax to define a class:
+class ClassName:
+    # define attributes (variables) and behavior (methods)
+    def config(self):
+        print("15, 16gb, 1TB")
+
+- syntax to create object of class:
+obj = ClassName()                     # ClassNme() is the calling of constructor
+
+-----------------------------------
+
+SPECIAL METHOD: __init__(self)
+
+    def __init__(self, cpu, ram):     # to initialize class variables, will be called automatically whenever the object of the class is created
+        print("in init")
+        self.cpu = cpu                # assigning value of cpu variable to the object 'self' variable
+        self.ram = ram
+
+----------------------------------
+
+CONSTRUCTOR AND 'SELF':
+
+- All objects are created in the heap memory.
+- Who will decide size of the objects to be allocated in heap memory?
+    * size of the objects depends on no. of variables
+    * constructor calculates how much memory to allocate to an object
+
+- __init__(self) is basically the constructor which is called automatically whenever an object of class is created; and is used to initialize objects.
+- self represents an object of the current class.
+
+----------------------------------
+
+TYPES OF VARIABLES in OOPS in PYTHON:
+
+1) Instance Variable
+    - different value for different object
+    - vary with object; change in value for one object won't affect the value for other objects
+    - defined inside __init__()
+2) Class (Static) Variable
+    - value remains same for all objects
+    - change in this variable, will reflect for all objects
+    - defined outside of __init()
+
+- instance variables can be accessed either via className and passing object name or directly via object name.
+Car.greet(c1)
+or
+c1.greet()
+
+- static variables can be accessed either via className or objectName
+Car.wheels = 5
+print(c1.comp, c1.mil, c1.wheels)
+
+class Car:
+    wheels = 4              # wheels = class(static) variable - belongs to Class namespace
+    def __init__(self):
+        self.mil = 60       # mil = instance variables - belong to Instance namespace
+        self.comp = "BMW"   # comp = instance variables - belong to Instance namespace
+
+
+NAMESPACE:
+- namespace is an area where you create and store object/variable
+- types of namespaces:
+  1) Class namespace - here you store all the class variables
+  2) Object/Instance namespace - here you store all the instance variables
+
+-----------------------------------------------------------------------
+
+TYPES OF METHODS IN PYTHON:
+
+- variables - to store data
+  methods - for behaviour, to perform certain tasks
+
+- 3 types of methods:
+  1) Instance method
+  2) Class method
+  3) Static method
+
+------------------------------------------------------------------------
+
+OOPS PILLARS:
+
+1) Encapsulation
+2) INHERITANCE
+3) POLYMORPHISM
+4) ABSTRACTION
+
+-------------------------------------------------------------------------
+
+IS PYTHON COMPILED OR INTERPRETED LANGUAGE:
+
+- both (because even if we are not compiling our python code, but in backend it is getting compiled); but in the books, we have heard it is interpreted.
+    source code ----> compiler ----> byte code ----> interpreter (PVM) ----> machine language
+  In python, we don't need to compile as python do it for us and we can directly run it.
+    python Demo.py
+  while in Java, we have to copile first to convert it into byte code (.class file gets generated) and then run it.
+    javac Demo.java
+    java Demo
+
+- what is a compiler?
+    * ex. C, C++, Java
+    * Above mentioned are high level language which humans can understand but not machines as machine/computer can only understand binary(0,1) language.
+    * Hence, we have to convert out high level code into machine code, which is done by compiler.
+
+- now, when we work with Python, it has different way of working.
+    * when we write a python file, it first gets compiled to give us a byte code, and then 'python virtual machine' interpretes this byte code into machine language (binary) code.
+    * why so complex process?
+        # we use concept of byte code to achieve portability (platform independence).
+        # It means WoRa (Write once, Run anywhere).
+        # It means you can run your code anywhere on any platform. Because when machine changes, it's CPU architecture also changes. So, if you wrote your code on one machine and compiled it to generate binary(native) code, then this same binary code may not run on other machines as machines may have different CPU architecture.
+        # Hence, to solve this problem, there's a concept of 'Virtual Machine'. In this VM, we run byte code, and this byte code in Vm gets converted into machine(binary) code.
+        # So, any machine with any os or cpu architecture, if has PVM (Python Virtual Machine) software installed, it's good to go.
+
+- what is interpreter?
+    * your code usually has a set of instructions; interpreter will read each line one by one and execute it line by line.
+
+- cpython:
+    * whatever we learn in python series, is cpython.
+    * cpython is actual implementation of python.
+    * python is a language which has many implementations like cpython, PyPy, IRONPYTHON(implemented in .net), JYTHON(implemented using Java).
+    * but here, we are using cpython - the widely used implementation. cpython means it is implemented in C language means internal working is happening in C language.
+
+-----------------------------------------------------------------------------------------------------
+
+
