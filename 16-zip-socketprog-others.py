@@ -49,3 +49,6 @@ print(zipped_dict)      # {'navin': 'oracle', 'kiran': 'apple', 'harsh': 'MS'}
 
 # SOCKET PROGRAMMING
 
+# establishing communication between clients and server
+# created 2 files: server.py and client.py
+# first run server.py and then client.py
