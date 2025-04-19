@@ -119,6 +119,7 @@ bubble_sort(list)
 print(list)
 '''
 
+
 # SELECTION SORT
 
 def selection_sort(list):
