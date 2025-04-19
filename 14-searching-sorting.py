@@ -132,7 +132,7 @@ def selection_sort(list):
         list[i], list[min_index] = list[min_index], list[i]
         print(list)
 
-list = [5,3,89,9,6,90,7,2]
+list = [5,1000,3,89,9,6,90,7,2]
 
 selection_sort(list)
 print(list)
